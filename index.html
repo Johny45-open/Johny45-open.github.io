@@ -1,24 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Osobní portfolio Johny45. Přístupné aplikace, nástroje a další projekty.">
-
-    <title>Johny45 – Moje projekty</title>
-
+    <meta name="description" content="Osobní portfolio Johny45. Přístupné aplikace, nástroje, hry a doplňky pro NVDA.">
+    <meta name="theme-color" content="#111827">
+    <title>Johny45 – Přístupné technologie a projekty</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
+    <a class="skip-link" href="#main">Přeskočit na hlavní obsah</a>
 
-    <a class="skip-link" href="#main">Přeskočit na obsah</a>
-
-    <header>
-        <div class="container">
-            <a class="logo" href="#home">Johny45</a>
-
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="logo" href="#home" aria-label="Johny45 – úvodní stránka">Johny45</a>
             <nav aria-label="Hlavní navigace">
                 <ul>
                     <li><a href="#home">Úvod</a></li>
@@ -31,89 +27,355 @@
     </header>
 
     <main id="main">
-
         <section id="home" class="hero">
-            <div class="container">
+            <div class="container hero-content">
                 <p class="eyebrow">OSOBNÍ PORTFOLIO</p>
-
                 <h1>Technologie bez bariér.</h1>
-
                 <p class="intro">
-                    Vítej na mém webu!
-                    Věnuji se vývoji aplikací a nástrojů,
-                    které pomáhají zpřístupňovat technologie
-                    lidem s různými potřebami.
+                    Vítej na mém webu! Věnuji se vývoji přístupných aplikací,
+                    nástrojů a her. Záleží mi na tom, aby technologie dobře
+                    fungovaly také s klávesnicí a odečítači obrazovky.
                 </p>
-
-                <a class="button" href="#projects">
-                    Prohlédnout projekty
-                </a>
+                <a class="button" href="#projects">Prohlédnout projekty</a>
             </div>
         </section>
 
         <section id="projects" class="section">
             <div class="container">
-                <h2>Moje projekty</h2>
-
-                <p>
-                    Tady najdeš aplikace, nástroje a další
-                    věci, na kterých pracuji.
-                </p>
-
-                <div class="project-grid">
-
-                    <article class="project-card">
-                        <h3>Mluvící kalkulačka</h3>
-
-                        <p>
-                            Přístupná kalkulačka pro Windows
-                            a Android s hlasovým výstupem
-                            a podporou odečítačů obrazovky.
-                        </p>
-
-                        <a href="https://github.com/Johny45-open/Mluvici_kalkulacka">
-                            Zobrazit projekt na GitHubu
-                        </a>
-                    </article>
-
+                <div class="section-heading">
+                    <p class="eyebrow">CO VYTVÁŘÍM</p>
+                    <h2>Moje projekty</h2>
+                    <p>
+                        Najdeš tu hotové aplikace, rozpracované projekty i experimenty.
+                        Stav každého projektu uvádím přímo u jeho popisu.
+                    </p>
                 </div>
+
+                <div class="project-tools" aria-label="Vyhledávání a filtrování projektů">
+                    <div class="field-group">
+                        <label for="project-search">Hledat projekt</label>
+                        <input id="project-search" type="search" placeholder="Zadej název nebo část popisu">
+                    </div>
+                    <div class="field-group">
+                        <label for="status-filter">Filtrovat podle stavu</label>
+                        <select id="status-filter">
+                            <option value="all">Všechny projekty</option>
+                            <option value="documented">Dokumentace k dispozici</option>
+                            <option value="development">Rozpracováno</option>
+                            <option value="unknown">Stav se doplňuje</option>
+                            <option value="empty">Prázdný repozitář</option>
+                        </select>
+                    </div>
+                </div>
+                <p id="results-status" class="results-status" role="status" aria-live="polite">Načteno 30 projektů.</p>
+
+                <nav class="category-navigation" aria-label="Kategorie projektů">
+                    <ul>
+                        <li><a href="#windows">Windows a desktop</a></li>
+                        <li><a href="#nvda">Doplňky NVDA</a></li>
+                        <li><a href="#flutter">Android a Flutter</a></li>
+                        <li><a href="#other">Další projekty</a></li>
+                    </ul>
+                </nav>
+
+                <section id="windows" class="project-section" aria-labelledby="windows-heading">
+                    <h3 id="windows-heading">Windows a desktopové aplikace</h3>
+                    <p class="category-description">Nástroje pro počítač, často s důrazem na ovládání klávesnicí a spolupráci s odečítačem NVDA.</p>
+                    <div class="project-grid">
+                        <article class="project-card" data-status="documented">
+                            <p class="project-type">Windows · Přístupnost</p>
+                            <h4>Přístupný Morseův přepisovač</h4>
+                            <p>Aplikace pro zadávání Morseovy abecedy, převod signálů na text a hlasité přečtení zprávy. Podporuje klávesnici a odečítač NVDA.</p>
+                            <p class="project-status">Stav: dokumentace k dispozici</p>
+                            <a href="https://github.com/Johny45-open/Pristupny_prepisovac_morseovky_na_text">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="documented">
+                            <p class="project-type">Windows · Příprava textů</p>
+                            <h4>Posouvač textu – PC Editor</h4>
+                            <p>Přístupný editor pro přípravu textů, zarážek, tempa a setlistů na počítači s NVDA.</p>
+                            <p class="project-status">Stav: dokumentace k dispozici</p>
+                            <a href="https://github.com/Johny45-open/Posouvac_textu_PC_editor">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="documented">
+                            <p class="project-type">Windows · Hudba</p>
+                            <h4>Přístupný hudební pamatovák</h4>
+                            <p>Hudební hra, ve které si hráč poslechne sekvenci tónů a zopakuje ji. Podporuje 15 durových tónin a ovládání klávesnicí.</p>
+                            <p class="project-status">Stav: dokumentace k dispozici</p>
+                            <a href="https://github.com/Johny45-open/Pristupny_hudebni_pamatovak">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="documented">
+                            <p class="project-type">Windows · Microsoft Excel</p>
+                            <h4>Přístupný ovladač listů Excelu</h4>
+                            <p>Samostatná aplikace pro správu listů v již spuštěném Excelu. Rozhraní je ovladatelné klávesnicí a optimalizované pro NVDA.</p>
+                            <p class="project-status">Stav: dokumentace k dispozici</p>
+                            <a href="https://github.com/Johny45-open/Pristupny_ovladac_listu_v_Excelu">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="documented">
+                            <p class="project-type">Windows · Terminál</p>
+                            <h4>Přístupný příkazový řádek</h4>
+                            <p>Terminál s historií příkazů, doplňováním cest a průběžně oznamovaným výstupem pro NVDA.</p>
+                            <p class="project-status">Stav: dokumentace k dispozici</p>
+                            <a href="https://github.com/Johny45-open/Pristupny_prikazovy_radek">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="development">
+                            <p class="project-type">Windows · Android · Diagnostika</p>
+                            <h4>Přístupný ovladač Androidu</h4>
+                            <p>Projekt pro přístupné ovládání telefonu Android z počítače. Aktuální dokumentace popisuje diagnostické, zatím pouze čtecí funkce.</p>
+                            <p class="project-status">Stav: etapa 2A – diagnostické rozhraní</p>
+                            <a href="https://github.com/Johny45-open/Pristupny_ovladac_pro_Android">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="documented">
+                            <p class="project-type">Windows · Konfigurace</p>
+                            <h4>Konfigurátor mluvící kalkulačky</h4>
+                            <p>Desktopový nástroj pro úpravu profilů a nastavení kalkulačky a export konfigurace pro Flutter aplikaci.</p>
+                            <p class="project-status">Stav: dokumentace k dispozici</p>
+                            <a href="https://github.com/Johny45-open/Konfigurator_mluvici_kalkulacky">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="documented">
+                            <p class="project-type">Windows · Vývojářský nástroj</p>
+                            <h4>Přístupný konfigurátor instalátorů</h4>
+                            <p>Nástroj pro tvorbu instalátorů Windows s podporou PyInstalleru a Inno Setup a s důrazem na přístupné rozhraní.</p>
+                            <p class="project-status">Stav: dokumentace k dispozici</p>
+                            <a href="https://github.com/Johny45-open/Pristupny_konfigurator_instalatoru_exe_souboru">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="documented">
+                            <p class="project-type">Windows · Vývojářský nástroj</p>
+                            <h4>Accessible Gitignore Generator</h4>
+                            <p>Přístupný průvodce pro vytváření souborů .gitignore, navržený s ohledem na NVDA.</p>
+                            <p class="project-status">Stav: dokumentace k dispozici</p>
+                            <a href="https://github.com/Johny45-open/AccessibleGitignoreGenerator">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="development">
+                            <p class="project-type">Windows · Textový editor</p>
+                            <h4>Přístupný poznámkový blok</h4>
+                            <p>Projekt jednoduchého textového editoru pro Windows. README uvádí přípravnou fázi projektu.</p>
+                            <p class="project-status">Stav: přípravná fáze podle README</p>
+                            <a href="https://github.com/Johny45-open/Pristupny_poznamkovy_blok">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="unknown">
+                            <p class="project-type">Windows · Hlasový nástroj</p>
+                            <h4>Hlasový skener</h4>
+                            <p>Projekt z oblasti hlasově přístupných nástrojů. Podrobnější popis a aktuální stav se doplňují.</p>
+                            <p class="project-status">Stav: informace se doplňují</p>
+                            <a href="https://github.com/Johny45-open/Hlasovy_skener">Repozitář na GitHubu</a>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="nvda" class="project-section" aria-labelledby="nvda-heading">
+                    <h3 id="nvda-heading">Doplňky pro NVDA</h3>
+                    <p class="category-description">Doplňky, které rozšiřují možnosti odečítače obrazovky NVDA.</p>
+                    <div class="project-grid">
+                        <article class="project-card" data-status="documented">
+                            <p class="project-type">NVDA · Navigace</p>
+                            <h4>List Level Addon</h4>
+                            <p>Doplněk oznamuje úroveň zanoření seznamu, počet položek a další informace o struktuře seznamů.</p>
+                            <p class="project-status">Stav: dokumentace k dispozici</p>
+                            <a href="https://github.com/Johny45-open/ListLevelAddon-for-NVDA">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="documented">
+                            <p class="project-type">NVDA · Popisky prvků</p>
+                            <h4>SmartLabeler</h4>
+                            <p>Doplněk umožňuje ukládat vlastní popisky a doplňující informace k prvkům uživatelského rozhraní.</p>
+                            <p class="project-status">Stav: dokumentace k dispozici</p>
+                            <a href="https://github.com/Johny45-open/Smart-labeler-pro-NVDA">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="documented">
+                            <p class="project-type">NVDA · Zálohování</p>
+                            <h4>NVDABackupManager</h4>
+                            <p>Doplněk pro vytváření a obnovu záloh konfigurace, profilů, slovníků řeči a dalších součástí NVDA.</p>
+                            <p class="project-status">Stav: dokumentace k dispozici</p>
+                            <a href="https://github.com/Johny45-open/NVDABackupManager">Repozitář na GitHubu</a>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="flutter" class="project-section" aria-labelledby="flutter-heading">
+                    <h3 id="flutter-heading">Android a Flutter</h3>
+                    <p class="category-description">Mobilní aplikace a projekty vytvořené nebo připravované ve Flutteru.</p>
+                    <div class="project-grid">
+                        <article class="project-card" data-status="unknown">
+                            <p class="project-type">Android · Windows · Kalkulačka</p>
+                            <h4>Mluvící kalkulačka</h4>
+                            <p>Přístupná kalkulačka s hlasovým výstupem, podporou čteček obrazovky a několika výpočetními režimy. Podrobnější informace o projektu se postupně doplňují.</p>
+                            <p class="project-status">Stav: informace se doplňují</p>
+                            <a href="https://github.com/Johny45-open/Mluvici_kalkulacka">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="unknown">
+                            <p class="project-type">Android · Texty</p>
+                            <h4>Posouvač textu</h4>
+                            <p>Mobilní projekt pro zobrazování a posouvání textů. Spolupracuje s PC editorem pro přípravu textů a setlistů.</p>
+                            <p class="project-status">Stav: informace se doplňují</p>
+                            <a href="https://github.com/Johny45-open/Posouvac_textu">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="unknown">
+                            <p class="project-type">Android · Hra</p>
+                            <h4>Přístupná mluvící hrací kostka</h4>
+                            <p>Projekt hry s hlasovým výstupem, jejímž základem je přístupné házení kostkou.</p>
+                            <p class="project-status">Stav: informace se doplňují</p>
+                            <a href="https://github.com/Johny45-open/pristupna_mluvici_hraci_kostka">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="unknown">
+                            <p class="project-type">Android · Nástroj</p>
+                            <h4>Přístupná mluvící minutka</h4>
+                            <p>Mobilní projekt minutky s důrazem na přístupné používání.</p>
+                            <p class="project-status">Stav: informace se doplňují</p>
+                            <a href="https://github.com/Johny45-open/Pristupna_mluvici_minutka">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="unknown">
+                            <p class="project-type">Flutter · Simulátor</p>
+                            <h4>Přístupný simulátor multimetru</h4>
+                            <p>Projekt simulátoru zobrazení multimetru. Podrobnější představení doplníme podle aktuálního stavu aplikace.</p>
+                            <p class="project-status">Stav: informace se doplňují</p>
+                            <a href="https://github.com/Johny45-open/Pristupny_simulator_zobrazeni_multimetru">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="unknown">
+                            <p class="project-type">Flutter · Vzdělávání</p>
+                            <h4>Kytarová učebnice</h4>
+                            <p>Projekt aplikace zaměřené na výuku a procvičování hry na kytaru.</p>
+                            <p class="project-status">Stav: informace se doplňují</p>
+                            <a href="https://github.com/Johny45-open/Kytarova_ucebnice">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="unknown">
+                            <p class="project-type">Flutter · Praktická aplikace</p>
+                            <h4>Přístupná kuchařka</h4>
+                            <p>Projekt mobilní kuchařky s důrazem na přístupnost.</p>
+                            <p class="project-status">Stav: informace se doplňují</p>
+                            <a href="https://github.com/Johny45-open/Pristupna_kucharka">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="unknown">
+                            <p class="project-type">Flutter · Simulátor</p>
+                            <h4>Simulátor samoobslužné pokladny</h4>
+                            <p>Projekt simulátoru samoobslužné pokladny. Podrobnosti o funkcích se doplňují.</p>
+                            <p class="project-status">Stav: informace se doplňují</p>
+                            <a href="https://github.com/Johny45-open/simulator_samoobsluzne_pokladny">Repozitář na GitHubu</a>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="other" class="project-section" aria-labelledby="other-heading">
+                    <h3 id="other-heading">Další projekty a experimenty</h3>
+                    <p class="category-description">Také menší nástroje, nápady a repozitáře, u kterých se veřejný popis teprve připravuje.</p>
+                    <div class="project-grid">
+                        <article class="project-card" data-status="unknown">
+                            <p class="project-type">Nástroj · Dotazník</p>
+                            <h4>Přístupný dotazník pro aplikace</h4>
+                            <p>Repozitář projektu. Podrobnější popis funkcí a aktuální stav se doplňují.</p>
+                            <p class="project-status">Stav: informace se doplňují</p>
+                            <a href="https://github.com/Johny45-open/Pristupny_dotaznik_pro_aplikace">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="unknown">
+                            <p class="project-type">Nástroj · Čtení</p>
+                            <h4>Čtečka seznamů</h4>
+                            <p>Repozitář projektu. Podrobnější popis funkcí a aktuální stav se doplňují.</p>
+                            <p class="project-status">Stav: informace se doplňují</p>
+                            <a href="https://github.com/Johny45-open/Ctecka_seznamu">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="unknown">
+                            <p class="project-type">Nástroj · Dokumenty</p>
+                            <h4>Čtečka PDF</h4>
+                            <p>Repozitář je aktuálně prázdný. Až do něj přibude obsah, doplníme i představení projektu.</p>
+                            <p class="project-status">Stav: prázdný repozitář</p>
+                            <a href="https://github.com/Johny45-open/Ctecka_PDF">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="unknown">
+                            <p class="project-type">Nástroj · Úprava metadat</p>
+                            <h4>Editor tagů</h4>
+                            <p>Repozitář projektu. Podrobnější popis funkcí a aktuální stav se doplňují.</p>
+                            <p class="project-status">Stav: informace se doplňují</p>
+                            <a href="https://github.com/Johny45-open/Editor_tagu">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="unknown">
+                            <p class="project-type">Nástroj · Telefonie</p>
+                            <h4>Výpis hovorů</h4>
+                            <p>Repozitář projektu. Podrobnější popis funkcí a aktuální stav se doplňují.</p>
+                            <p class="project-status">Stav: informace se doplňují</p>
+                            <a href="https://github.com/Johny45-open/Vypis_hovoru">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="unknown">
+                            <p class="project-type">Nástroj · Prezentace</p>
+                            <h4>Prezentační program</h4>
+                            <p>Repozitář projektu. Podrobnější popis funkcí a aktuální stav se doplňují.</p>
+                            <p class="project-status">Stav: informace se doplňují</p>
+                            <a href="https://github.com/Johny45-open/prezentacni_program">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="unknown">
+                            <p class="project-type">Nástroj · Virtualizace</p>
+                            <h4>Program na vytvoření virtuálního počítače</h4>
+                            <p>Repozitář projektu. Podrobnější popis funkcí a aktuální stav se doplňují.</p>
+                            <p class="project-status">Stav: informace se doplňují</p>
+                            <a href="https://github.com/Johny45-open/Program_na_vytvoreni_virtualniho_pocitace">Repozitář na GitHubu</a>
+                        </article>
+
+                        <article class="project-card" data-status="empty">
+                            <p class="project-type">Nástroj · Tabulky</p>
+                            <h4>Přístupný tabulkový kalkulátor</h4>
+                            <p>Repozitář je podle aktuální kontroly prázdný. Představení doplníme, až bude k dispozici obsah.</p>
+                            <p class="project-status">Stav: prázdný repozitář</p>
+                            <a href="https://github.com/Johny45-open/Pristupny_tabulkovy_kalkulator">Repozitář na GitHubu</a>
+                        </article>
+                    </div>
+                </section>
+
+                <p class="catalog-note">
+                    Portfolio obsahuje i projekty ve vývoji a experimenty. U každého odkazu můžeš
+                    otevřít repozitář a zjistit další informace; stav na této stránce budeme průběžně zpřesňovat.
+                </p>
             </div>
         </section>
 
         <section id="about" class="section alternate">
-            <div class="container">
+            <div class="container narrow-content">
+                <p class="eyebrow">O AUTOROVI</p>
                 <h2>O mně</h2>
-
                 <p>
-                    Baví mě programování, technologie,
-                    přístupnost a hledání nových způsobů,
-                    jak lidem usnadnit používání počítačů
-                    a mobilních zařízení.
+                    Baví mě programování, technologie, hudba a přístupnost.
+                    Při vývoji se zaměřuji na to, aby aplikace nebyly použitelné
+                    jen myší a zrakem, ale také klávesnicí a pomocí odečítačů
+                    obrazovky, jako jsou NVDA a TalkBack.
                 </p>
             </div>
         </section>
 
         <section id="contact" class="section">
-            <div class="container">
-                <h2>Kontakt</h2>
-
-                <p>
-                    Moje projekty najdeš také na GitHubu.
-                </p>
-
-                <a href="https://github.com/Johny45-open">
-                    Můj GitHub profil
-                </a>
+            <div class="container narrow-content">
+                <p class="eyebrow">SPOJENÍ</p>
+                <h2>Kontakt a další tvorba</h2>
+                <p>Všechny veřejné repozitáře a zdrojové kódy najdeš na mém GitHub profilu.</p>
+                <a class="button" href="https://github.com/Johny45-open">Můj GitHub profil</a>
             </div>
         </section>
-
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <p>© 2026 Johny45. Všechna práva vyhrazena.</p>
+            <p>© 2026 Johny45. Osobní portfolio.</p>
         </div>
     </footer>
-
 </body>
 </html>
